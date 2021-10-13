@@ -2,6 +2,7 @@ library(shiny)
 
 shinyUI(
   fluidPage(
+    titlePanel("Independent component analysis"),
     sidebarLayout(
       sidebarPanel(
         fileInput("file", "csvファイルを選択してください",
@@ -11,14 +12,14 @@ shinyUI(
                     ".csv")
         ),
         tags$hr(),
-        htmlOutput("dorder"),
-        htmlOutput("fl"),
-        htmlOutput("forder"),
-        htmlOutput("n_smoothing"),
+        htmlOutput("nc"),
+        htmlOutput("xlim_bottom"),
+        htmlOutput("xlim_top"),
         htmlOutput("ylim_bottom"),
         htmlOutput("ylim_top"),
         actionButton("submit", "プロット"),
-        downloadButton("downloadData", "Download")
+        downloadButton("downloadData1", "Download independent components"),
+        downloadButton("downloadData2", "Download mixing matrix")
       ),
       mainPanel(
         tabsetPanel(type = "tabs",
